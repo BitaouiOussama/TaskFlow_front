@@ -1,0 +1,21 @@
+.theme-light, .theme-dark {
+  @include themed() {
+    --primary-bg: #{t('bg-primary')};
+    --secondary-bg: #{t('bg-secondary')};
+    --primary-text: #{t('text-primary')};
+    --secondary-text: #{t('text-secondary')};
+    --accent: #{t('accent-color')};
+    --button-bg: #{t('button-bg')};
+    --button-text: #{t('button-text')};
+  }
+}
+
+
+
+/*      BACKGROUND      */
+
+$background-light__blue-gardient__color: linear-gradient(to bottom right, #e6f3f1, #f0f7f5);
+
+/*      SCROLLBAR       */
+$scroll__bar-track-color: #f1f1f1;
+$scroll__bar-thumb-color: #555;

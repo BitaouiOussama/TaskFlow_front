@@ -1,0 +1,6 @@
+projectKey=BitaouiOussama_TaskFlow_front
+serverUrl=http://localhost:9000
+serverVersion=8.9.10.61524
+dashboardUrl=http://localhost:9000/dashboard?id=BitaouiOussama_TaskFlow_front
+ceTaskId=AZXR7BzT1W78ZoGKIEAe
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AZXR7BzT1W78ZoGKIEAe

@@ -32,3 +32,5 @@ jobs:
 
     - name:  Push Image to DockerHub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/angular-app:v2
+    - name: Apply Kubernetes Deployment to Minikube
+      run: kubectl apply -f configfile.yaml

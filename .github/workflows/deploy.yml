@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: self-hosted
 
     steps:
     - name:  Checkout Code
@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name:  Build Angular App
-      run: npm run build -- --configuration=production
+      run: npm run build --prod
 
     - name:  Docker Login
       run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin  
@@ -32,5 +32,12 @@ jobs:
 
     - name:  Push Image to DockerHub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/angular-app:v2
-    - name: Apply Kubernetes Deployment to Minikube
+      
+    - name: Start Minikube
+      run: minikube start --driver=docker
+
+    - name: Set kubectl context to Minikube
+      run: kubectl config use-context minikube
+
+    - name: Apply Kubernetes Deployment
       run: kubectl apply -f configfile.yaml

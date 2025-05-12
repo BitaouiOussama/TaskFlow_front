@@ -39,5 +39,11 @@ jobs:
     - name: Set kubectl context to Minikube
       run: kubectl config use-context minikube
 
+    # - name: Wait for Kubernetes to be ready
+    #   run: |
+    #     for i in {1..10}; do
+    #       kubectl get nodes && break || sleep 10
+    #     done
+
     - name: Apply Kubernetes Deployment
       run: kubectl apply -f configfile.yaml

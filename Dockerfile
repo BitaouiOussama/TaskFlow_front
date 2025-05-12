@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build -- --configuration=production
 
 # Stage 2: Serve the app with Nginx
-FROM nginx:stable-alpine
+FROM nginx:stable-alpinew
 
 # Remove default Nginx static content
 RUN rm -rf /usr/share/nginx/html/*
